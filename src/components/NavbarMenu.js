@@ -58,6 +58,18 @@ export class NavbarMenu extends Component {
                     <DropdownItem>
                       Zwróć
                     </DropdownItem>
+                    <DropdownItem>
+                      Dodaj książkę
+                    </DropdownItem>
+                    <DropdownItem>
+                      Dodaj czytelnika
+                    </DropdownItem>
+                    <DropdownItem>
+                      Szukaj książki
+                    </DropdownItem>
+                    <DropdownItem>
+                      Szukaj czytelnika
+                    </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>
               </Nav>

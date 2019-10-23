@@ -62,6 +62,9 @@ export class Readers extends Component {
                         <Button color="secondary">
                             Zwróć książkę
                         </Button>
+                        <Button color="dark">
+                            wypożyczone pozycje
+                        </Button>
                     </ButtonGroup>
                   </td>
                 </tr>
