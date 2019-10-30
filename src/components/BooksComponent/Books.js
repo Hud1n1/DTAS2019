@@ -29,8 +29,8 @@ export class Books extends Component {
       this.setState({
         books: await Axios.get('http://localhost:8080/api/book')
         .then(function(response){
-          console.log(response.data.books);
-          return response.data.books;
+          console.log(`Api response:`,response);
+          return response.data;
         })
       });
     }
