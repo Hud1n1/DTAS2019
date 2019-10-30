@@ -36,7 +36,7 @@ export class NavbarMenu extends Component {
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-              <ButtonGroup horizontal block size = "lg">
+              <ButtonGroup horizontal='true' block='true' size = "lg">
                 <Button href='/books'> Książki </Button>
                 <Button href='/readers'> Czytelnicy </Button>
               </ButtonGroup>
@@ -48,7 +48,7 @@ export class NavbarMenu extends Component {
                     <DropdownItem href="/books">
                       Książki
                     </DropdownItem>
-                    <DropdownItem href="readers">
+                    <DropdownItem href="/readers">
                       Czytelnicy
                     </DropdownItem>
                     <DropdownItem divider />
@@ -57,6 +57,18 @@ export class NavbarMenu extends Component {
                     </DropdownItem>
                     <DropdownItem>
                       Zwróć
+                    </DropdownItem>
+                    <DropdownItem>
+                      Dodaj książkę
+                    </DropdownItem>
+                    <DropdownItem>
+                      Dodaj czytelnika
+                    </DropdownItem>
+                    <DropdownItem>
+                      Szukaj książki
+                    </DropdownItem>
+                    <DropdownItem>
+                      Szukaj czytelnika
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>

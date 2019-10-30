@@ -2,8 +2,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import {NavbarMenu} from './components/NavbarMenu';
-import {Books} from './components/Books';
-import {Readers} from './components/Readers';
+import {Books} from './components/BooksComponent/Books';
+import {Readers} from './components/ReadersComponent/Readers';
 
 import { Route } from 'react-router';
 import { BrowserRouter} from 'react-router-dom';
@@ -17,7 +17,7 @@ function App() {
         <div className="row">
             <main className="main-content col-lg-12 col-md-12 col-sm-12 p-0">
                 <NavbarMenu/>
-                <div class="main-content-container container-fluid px-4">
+                <div className="main-content-container container-fluid px-4">
                     {/* <Route path="/" component={Books} /> */}
                     <Route path="/books" component={Books} />
                     <Route path="/readers" component={Readers} />
