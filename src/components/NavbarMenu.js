@@ -6,11 +6,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    ButtonGroup,
+    Input,
     Button } from 'reactstrap';
 
 
@@ -36,42 +32,13 @@ export class NavbarMenu extends Component {
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
-              <ButtonGroup horizontal='true' block='true' size = "lg">
-                <Button href='/books'> Książki </Button>
-                <Button href='/readers'> Czytelnicy </Button>
-              </ButtonGroup>
-                <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>
-                    Kategorie
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem href="/books">
-                      Książki
-                    </DropdownItem>
-                    <DropdownItem href="/readers">
-                      Czytelnicy
-                    </DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>
-                      Wypożycz
-                    </DropdownItem>
-                    <DropdownItem>
-                      Zwróć
-                    </DropdownItem>
-                    <DropdownItem>
-                      Dodaj książkę
-                    </DropdownItem>
-                    <DropdownItem>
-                      Dodaj czytelnika
-                    </DropdownItem>
-                    <DropdownItem>
-                      Szukaj książki
-                    </DropdownItem>
-                    <DropdownItem>
-                      Szukaj czytelnika
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
+                <NavItem>
+                  <Button href='/books' size = "lg"> Książki</Button>
+                  <Button href='/readers' size = "lg"> Czytelnicy</Button>
+                </NavItem>
+                <NavItem>
+                  <Input type="search" name="search" id="search" placeholder="search" bsSize = "lg"/>
+                </NavItem>
               </Nav>
             </Collapse>
           </Navbar>
