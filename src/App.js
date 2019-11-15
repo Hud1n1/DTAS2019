@@ -9,6 +9,7 @@ import { Route } from 'react-router';
 import { BrowserRouter} from 'react-router-dom';
 
 import { Col, Row, FormGroup} from 'reactstrap';
+import {Rental} from "./components/RentalComponent/Rental";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                     {/* <Route path="/" component={Books} /> */}
                     <Route path="/books" component={Books} />
                     <Route path="/readers" component={Readers} />
+                    <Route path='/rental' component={Rental}/>
                 </div>
             </main>
         </div>

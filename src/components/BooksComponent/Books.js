@@ -62,10 +62,10 @@ export class Books extends Component {
                     <td>tak</td>
                     <td>
                       <ButtonGroup vertical block>
-                        <Button color="dark">
+                        <Button href='/rental' color="dark">
                             Wypożycz
                         </Button>
-                        <Button color="secondary">
+                        <Button href='/return' color="secondary">
                             Zwróć
                         </Button>
                       </ButtonGroup>
