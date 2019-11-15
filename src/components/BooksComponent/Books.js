@@ -3,6 +3,7 @@ import {Table,
         Button,
         ButtonGroup} from 'reactstrap';
 import Axios from 'axios';
+import {Rental} from "../RentalComponent/Rental";
 // import MockAdapter from 'axios-mock-adapter';
 
 // var mock = new MockAdapter(Axios);
@@ -13,13 +14,13 @@ export class Books extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        books: []
+        bookStats: []
       };
     }
 
     async componentDidMount() {
       // mock.onGet('/api/book').reply(200, {
-      //   books: [
+      //   bookStats: [
       //     { author: 'John Smith', category: 'Cat', id: 1, title: 'tytuł', year: 1998 },
       //     { author: 'John Smith', category: 'Cat', id: 2, title: 'tytuł2', year: 1998 }
       //  
@@ -27,7 +28,7 @@ export class Books extends Component {
       // });
 
       this.setState({
-        books: await Axios.get('http://localhost:8080/api/book')
+        bookStats: await Axios.get('http://localhost:8080/api/bookstatus')
         .then(function(response){
           console.log(`Api response:`,response);
           return response.data;
@@ -52,23 +53,17 @@ export class Books extends Component {
 
               <tbody>
                 {
-                  this.state.books.map( book =>
-                  <tr key={book.id}>
-                    <td>{book.id}</td>
-                    <td>{book.title}</td>
-                    <td>{book.author}</td>
-                    <td>{book.year}</td>
-                    <td>{book.category}</td>
-                    <td>tak</td>
+                  this.state.bookStats.map(status =>
+                  <tr key={status.book.id}>
+                    <td>{status.book.id}</td>
+                    <td>{status.book.title}</td>
+                    <td>{status.book.author}</td>
+                    <td>{status.book.year}</td>
+                    <td>{status.book.category}</td>
+                    <td>{status.rented ? 'Nie' : 'Tak'}</td>
                     <td>
-                      <ButtonGroup vertical block>
-                        <Button href='/rental' color="dark">
-                            Wypożycz
-                        </Button>
-                        <Button href='/return' color="secondary">
-                            Zwróć
-                        </Button>
-                      </ButtonGroup>
+                        {/* wyświetl wypożycz/zwróć zal. od statusu */}
+                        <Rental></Rental> {/*przekazać: status + książka*/}
                     </td>
                   </tr>
                 )}

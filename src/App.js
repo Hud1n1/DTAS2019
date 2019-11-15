@@ -22,7 +22,6 @@ function App() {
                     {/* <Route path="/" component={Books} /> */}
                     <Route path="/books" component={Books} />
                     <Route path="/readers" component={Readers} />
-                    <Route path='/rental' component={Rental}/>
                 </div>
             </main>
         </div>
