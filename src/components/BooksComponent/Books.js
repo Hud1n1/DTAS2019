@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
-import {Table,
-        Button,
-        ButtonGroup} from 'reactstrap';
+import {Table} from 'reactstrap';
 import Axios from 'axios';
 import {Rental} from "../RentalComponent/Rental";
-// import MockAdapter from 'axios-mock-adapter';
-
-// var mock = new MockAdapter(Axios);
 
 export class Books extends Component {
     displayName = Books.name;
@@ -19,13 +14,6 @@ export class Books extends Component {
     }
 
     async componentDidMount() {
-      // mock.onGet('/api/book').reply(200, {
-      //   bookStats: [
-      //     { author: 'John Smith', category: 'Cat', id: 1, title: 'tytuł', year: 1998 },
-      //     { author: 'John Smith', category: 'Cat', id: 2, title: 'tytuł2', year: 1998 }
-      //  
-      //   ]
-      // });
 
       this.setState({
         bookStats: await Axios.get('http://localhost:8080/api/bookstatus')
@@ -62,8 +50,7 @@ export class Books extends Component {
                     <td>{status.book.category}</td>
                     <td>{status.rented ? 'Nie' : 'Tak'}</td>
                     <td>
-                        {/* wyświetl wypożycz/zwróć zal. od statusu */}
-                        <Rental></Rental> {/*przekazać: status + książka*/}
+                        <Rental status={status}></Rental>
                     </td>
                   </tr>
                 )}
