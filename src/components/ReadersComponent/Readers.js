@@ -62,7 +62,7 @@ export class Readers extends Component {
                     <td>{rdr.phone}</td>
                     <td>{rdr.address}</td>
                     <td>{rdr.email}</td>
-                    <td>0</td>
+                    <td>{rdr.rentedBooksCount}</td>
                     <td>
                       <ButtonGroup vertical block>
                         <Button color="dark">
