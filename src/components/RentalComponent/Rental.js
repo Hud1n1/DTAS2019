@@ -4,6 +4,7 @@ import Axios from 'axios';
 export class Rental extends Component {
 
     newStatus;
+    api = 'http://127.0.0.1:8080/api/bookstatus';
 
     constructor(props) {
         super(props);
@@ -14,7 +15,7 @@ export class Rental extends Component {
             rentedUntil: props.status.rentedUntil || null,
             book: props.status.book || null,
             reader: props.status.reader || null
-        }
+        };
     };
 
     readerIdSubmitted = event => {
@@ -24,7 +25,7 @@ export class Rental extends Component {
         this.newStatus.book = { id: parseInt(event.target.value) }
     }
 
-    handleSubmit = event => {
+    handleRental = event => {
         event.preventDefault();
 
         this.newStatus.rented = true;
@@ -33,22 +34,50 @@ export class Rental extends Component {
 
         console.log('to be Sent: ', this.newStatus);
 
-        Axios.put('http://127.0.0.1:8080/api/bookstatus',this.newStatus)
-            .then(res => {
-                console.log(`Api response ${res}`)
-            })
+        Axios.put(this.api, this.newStatus)
+            .then(() => window.location.reload(),
+                err => console.error(err)
+            );
     };
 
-    render() {
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+    handleReturn = event => {
+        event.preventDefault();
+        this.newStatus.reader = null;
+        this.newStatus.rented = false;
+        this.newStatus.rentedOn = null;
+        this.newStatus.rentedUntil = null;
+
+        Axios.put(this.api, this.newStatus).then(
+        () => window.location.reload(),
+        err => console.error(err)
+        );
+    };
+    RentABookForm = () => {
+        return <form onSubmit={this.handleRental}>
                     <label>
                         Id Czytelnika:
                         <input type={'number'} name={'readerId'} onChange={this.readerIdSubmitted}/>
                     </label>
                     <button type={'submit'}>Wypożycz</button>
-                </form>
+                </form>;
+    };
+    ReturnBookForm = () => {
+        return <form onSubmit={this.handleReturn}>
+            <button type={'submit'}>Zwróć</button>
+        </form>
+    };
+
+    DisplayForm = (props) => {
+        if(props.rented) {
+            return <this.ReturnBookForm/>
+        }
+        return <this.RentABookForm/>
+    }
+
+    render() {
+        return (
+            <div>
+                <this.DisplayForm rented={this.props.status.rented}/>
             </div>
         )
     }

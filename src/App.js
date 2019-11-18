@@ -8,9 +8,6 @@ import {Readers} from './components/ReadersComponent/Readers';
 import { Route } from 'react-router';
 import { BrowserRouter} from 'react-router-dom';
 
-import { Col, Row, FormGroup} from 'reactstrap';
-import {Rental} from "./components/RentalComponent/Rental";
-
 function App() {
   return (
     <BrowserRouter>
