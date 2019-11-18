@@ -28,7 +28,7 @@ export class NavbarMenu extends Component {
       return (
         <div>
           <Navbar color="dark" dark expand="md">
-            <NavbarBrand href="/">Biblioteka</NavbarBrand>
+            <NavbarBrand href="/home">Biblioteka</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
