@@ -36,7 +36,10 @@ export class Rental extends Component {
 
         Axios.put(this.api, this.newStatus)
             .then(() => window.location.reload(),
-                err => console.error(err)
+                err => {
+                    window.alert("Nieprawidłowe dane");
+                    console.error(err)
+                }
             );
     };
 
@@ -49,7 +52,10 @@ export class Rental extends Component {
 
         Axios.put(this.api, this.newStatus).then(
         () => window.location.reload(),
-        err => console.error(err)
+        err => {
+                window.alert("Wystąpił błąd");
+                console.error(err)
+            }
         );
     };
     RentABookForm = () => {
