@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import {Table,
-        Button,
-        ButtonGroup} from 'reactstrap';
+import {Table} from 'reactstrap';
 import Axios from 'axios';
-// import MockAdapter from 'axios-mock-adapter';
-
-// var mock = new MockAdapter(Axios);
+import {Rental} from "../RentalComponent/Rental";
 
 export class Books extends Component {
     displayName = Books.name;
@@ -13,24 +9,17 @@ export class Books extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        books: []
+        bookStats: []
       };
     }
 
     async componentDidMount() {
-      // mock.onGet('/api/book').reply(200, {
-      //   books: [
-      //     { author: 'John Smith', category: 'Cat', id: 1, title: 'tytuł', year: 1998 },
-      //     { author: 'John Smith', category: 'Cat', id: 2, title: 'tytuł2', year: 1998 }
-      //  
-      //   ]
-      // });
 
       this.setState({
-        books: await Axios.get('http://localhost:8080/api/book')
+        bookStats: await Axios.get('http://localhost:8080/api/bookstatus')
         .then(function(response){
-          console.log(response.data.books);
-          return response.data.books;
+          console.log(`Api response:`,response);
+          return response.data;
         })
       });
     }
@@ -52,23 +41,16 @@ export class Books extends Component {
 
               <tbody>
                 {
-                  this.state.books.map( book =>
-                  <tr key={book.id}>
-                    <td>{book.id}</td>
-                    <td>{book.title}</td>
-                    <td>{book.author}</td>
-                    <td>{book.year}</td>
-                    <td>{book.category}</td>
-                    <td>tak</td>
+                  this.state.bookStats.map(status =>
+                  <tr key={status.book.id}>
+                    <td>{status.book.id}</td>
+                    <td>{status.book.title}</td>
+                    <td>{status.book.author}</td>
+                    <td>{status.book.year}</td>
+                    <td>{status.book.category}</td>
+                    <td>{status.rented ? `Wypożyczna do ${status.rentedUntil.toString().slice(0,10)}` : 'Tak'}</td>
                     <td>
-                      <ButtonGroup vertical block>
-                        <Button color="dark">
-                            Wypożycz
-                        </Button>
-                        <Button color="secondary">
-                            Zwróć
-                        </Button>
-                      </ButtonGroup>
+                        <Rental status={status}></Rental>
                     </td>
                   </tr>
                 )}

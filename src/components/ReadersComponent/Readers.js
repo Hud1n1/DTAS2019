@@ -30,7 +30,8 @@ export class Readers extends Component {
         this.setState({
           readers: await Axios.get('http://localhost:8080/api/reader')
           .then(function(response){
-            return response.data.readers;
+              console.log(`Api response:`, response);
+              return response.data;
           })
         });
     }
@@ -61,17 +62,11 @@ export class Readers extends Component {
                     <td>{rdr.phone}</td>
                     <td>{rdr.address}</td>
                     <td>{rdr.email}</td>
-                    <td>0</td>
+                    <td>{rdr.rentedBooksCount}</td>
                     <td>
                       <ButtonGroup vertical block>
                         <Button color="dark">
                             Edytuj dane
-                        </Button>
-                        <Button color="secondary">
-                            Wypożycz książkę
-                        </Button>
-                        <Button color="secondary">
-                            Zwróć książkę
                         </Button>
                       </ButtonGroup>
                     </td>
