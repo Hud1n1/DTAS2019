@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import {Button, ButtonGroup} from 'reactstrap';
 
 export class Rental extends Component {
 
@@ -64,12 +65,14 @@ export class Rental extends Component {
                         Id Czytelnika:
                         <input type={'number'} name={'readerId'} onChange={this.readerIdSubmitted}/>
                     </label>
-                    <button type={'submit'}>Wypożycz</button>
+                    <Button type={'submit'}>Wypożycz</Button>
                 </form>;
     };
     ReturnBookForm = () => {
         return <form onSubmit={this.handleReturn}>
-            <button type={'submit'}>Zwróć</button>
+            <ButtonGroup vertical block>
+                <Button color={'dark'} type={'submit'}>Zwróć</Button>
+            </ButtonGroup>
         </form>
     };
 
