@@ -23,7 +23,7 @@ export class Rental extends Component {
     };
     bookIdSubmitted = event => {
         this.newStatus.book = { id: parseInt(event.target.value) }
-    }
+    };
 
     handleRental = event => {
         event.preventDefault();
