@@ -12,8 +12,6 @@ export class Rental extends Component {
         this.newStatus = {
             id: props.status.id,
             rented: props.status.rented || false,
-            rentedOn: props.status.rentedOn || null,
-            rentedUntil: props.status.rentedUntil || null,
             book: props.status.book || null,
             reader: props.status.reader || null
         };
@@ -30,8 +28,6 @@ export class Rental extends Component {
         event.preventDefault();
 
         this.newStatus.rented = true;
-        this.newStatus.rentedOn = new Date();
-        this.newStatus.rentedUntil = new Date();
 
         console.log('to be Sent: ', this.newStatus);
 
@@ -48,8 +44,6 @@ export class Rental extends Component {
         event.preventDefault();
         this.newStatus.reader = null;
         this.newStatus.rented = false;
-        this.newStatus.rentedOn = null;
-        this.newStatus.rentedUntil = null;
 
         Axios.put(this.api, this.newStatus).then(
         () => window.location.reload(),
