@@ -14,7 +14,6 @@ export class Books extends Component {
     }
 
     async componentDidMount() {
-
       this.setState({
         bookStats: await Axios.get('http://localhost:8080/api/bookstatus')
         .then(function(response){
