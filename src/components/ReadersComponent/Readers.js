@@ -47,6 +47,7 @@ export class Readers extends Component {
                     <th>Telefon</th>
                     <th>Adres</th>
                     <th>Email</th>
+                      <th>Ważność karty</th>
                     <th>wypożyczone pozycje</th>
                     <th>Akcje</th>
                   </tr>
@@ -62,6 +63,7 @@ export class Readers extends Component {
                     <td>{rdr.phone}</td>
                     <td>{rdr.address}</td>
                     <td>{rdr.email}</td>
+                      <td>{rdr.cardExpiryDate.toString().slice(0,10)}</td>
                     <td>{rdr.rentedBooksCount}</td>
                     <td>
                       <ButtonGroup vertical block>
