@@ -49,7 +49,7 @@ export class Books extends Component {
                     <td>{status.book.category}</td>
                     <td>{status.rented ? `Wypożyczna do ${status.rentedUntil.toString().slice(0,10)}` : 'Tak'}</td>
                     <td>
-                        <Rental status={status}></Rental>
+                        <Rental status={status}/>
                     </td>
                   </tr>
                 )}

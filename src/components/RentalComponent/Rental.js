@@ -32,12 +32,12 @@ export class Rental extends Component {
         console.log('to be Sent: ', this.newStatus);
 
         Axios.put(this.api, this.newStatus)
-            .then(() => window.location.reload(),
-                err => {
-                    window.alert("Nieprawidłowe dane");
-                    console.error(err)
+            .then(() => window.location.reload())
+            .catch(function (error) {
+                if (error.response) {
+                    window.alert(error.response.data)
                 }
-            );
+            });
     };
 
     handleReturn = event => {
@@ -75,7 +75,7 @@ export class Rental extends Component {
             return <this.ReturnBookForm/>
         }
         return <this.RentABookForm/>
-    }
+    };
 
     render() {
         return (

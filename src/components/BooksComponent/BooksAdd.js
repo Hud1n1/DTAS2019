@@ -73,7 +73,8 @@ export class BooksAdd extends Component {
                     <option> Literatura faktu </option>
                     <option> Literatura podróżnicza </option>
                     <option> Fantastyka </option>
-                    <option> Poezja </option>
+                      <option> Poezja </option>
+                      <option> Powieść historyczna </option>
                   </Input>
                   <br/>
                   <Button color="secondary" type="submit"> Dodaj </Button>
