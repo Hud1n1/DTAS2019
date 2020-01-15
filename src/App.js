@@ -10,6 +10,7 @@ import {Readers} from './components/ReadersComponent/Readers';
 
 import { Route } from 'react-router';
 import { BrowserRouter} from 'react-router-dom';
+import {ReadersEdit} from "./components/ReadersComponent/ReadersEdit";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/books-edit-list" component={BooksEditList} />
                     <Route path="/books-edit/:id" component={BooksEdit} />
                     <Route path="/readers" component={Readers} />
+                    <Route path="/readers-edit/:id" component={ReadersEdit} />
                 </div>
             </main>
         </div>
