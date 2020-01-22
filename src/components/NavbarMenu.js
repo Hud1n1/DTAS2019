@@ -37,7 +37,7 @@ export class NavbarMenu extends Component {
                   <Button href='/readers' size = "lg"> Czytelnicy</Button>
                 </NavItem>
                 <NavItem>
-                  <Input type="search" name="search" id="search" placeholder="search" bsSize = "lg"/>
+                <Button href='/search' size = "lg"> Szukaj książki </Button>
                 </NavItem>
               </Nav>
             </Collapse>
