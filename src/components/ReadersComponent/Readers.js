@@ -18,15 +18,6 @@ export class Readers extends Component {
     }
 
     async componentDidMount() {
-        // mock.onGet('/api/reader').reply(200, {
-        //   readers: [
-        //     { address: 'Miła 1, 90-430 Warszawa', email: 'abc@abc.pl', firstName: 'Anna', id: 1, lastName: 'Nowak', phone: 261423998 },
-        //     { address: 'Miła 1, 90-430 Warszawa', email: 'abc@abc.pl', firstName: 'Jonna', id: 2, lastName: 'Nowak', phone: 261423998 },
-        //     { address: 'Miła 1, 90-430 Warszawa', email: 'abc@abc.pl', firstName: 'Maria', id: 3, lastName: 'Nowak', phone: 261423998 },
-
-        //   ]
-        // });
-  
         this.setState({
           readers: await Axios.get('http://localhost:8080/api/reader')
           .then(function(response){
@@ -69,9 +60,7 @@ export class Readers extends Component {
                       <td>{rdr.fine}</td>
                     <td>
                       <ButtonGroup vertical block>
-                        <Button color="dark">
-                            Edytuj dane
-                        </Button>
+                          <Button color="dark" block href={"/readers-edit/" + rdr.id }> Edytuj dane </Button>
                       </ButtonGroup>
                     </td>
                   </tr>
