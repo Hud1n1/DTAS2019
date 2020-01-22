@@ -7,6 +7,9 @@ import {BooksAdd} from './components/BooksComponent/BooksAdd';
 import {BooksEditList} from './components/BooksComponent/BooksEditList';
 import {BooksEdit} from './components/BooksComponent/BooksEdit';
 import {Readers} from './components/ReadersComponent/Readers';
+import {Search} from './components/Search/Search';
+
+
 
 import { Route } from 'react-router';
 import { BrowserRouter} from 'react-router-dom';
@@ -27,6 +30,7 @@ function App() {
                     <Route path="/books-edit/:id" component={BooksEdit} />
                     <Route path="/readers" component={Readers} />
                     <Route path="/readers-edit/:id" component={ReadersEdit} />
+                    <Route path="/search" component={Search} />
                 </div>
             </main>
         </div>
