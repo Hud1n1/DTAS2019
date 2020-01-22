@@ -30,6 +30,7 @@ function App() {
                     <Route path="/books-edit/:id" component={BooksEdit} />
                     <Route path="/readers" component={Readers} />
                     <Route path="/readers-edit/:id" component={ReadersEdit} />
+                    <Route path="/search" component={Search} />
                 </div>
             </main>
         </div>
